@@ -9,9 +9,12 @@ def are_matching(left, right):
     return (left + right) in ["()", "[]", "{}"]
 
 
-def find_mismatch(text):
+def find_mismatch(text: str):
     opening_brackets_stack = []
+    text = text.split("\\n")[1]
+
     for i, next in enumerate(text):
+
         if next in "([{":
             opening_brackets_stack.append(next)
 
@@ -19,7 +22,7 @@ def find_mismatch(text):
             rightB = Bracket(next, i+1)
 
             if opening_brackets_stack == [] or not are_matching(opening_brackets_stack.pop(), next):
-                return rightB.position
+                return rightB.position 
             
     if opening_brackets_stack:
         return rightB.position
