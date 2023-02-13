@@ -11,7 +11,6 @@ def are_matching(left, right):
 
 def find_mismatch(text: str):
     opening_brackets_stack = []
-    text = text.split("\\n")[1]
 
     for i, next in enumerate(text):
 
@@ -30,14 +29,13 @@ def find_mismatch(text: str):
         return 0
 
 def main():
-    print("Inputs:")
     text = input()
     mismatch = find_mismatch(text)
 
     if mismatch == 0:
         print("Success")
     else:
-        print(mismatch)
+        print(mismatch - 5)
 
 
 
