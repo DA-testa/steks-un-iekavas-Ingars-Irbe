@@ -21,7 +21,9 @@ def find_mismatch(text: str):
             output = Bracket(next, i+1)
 
             if opening_brackets_stack == [] or not are_matching(opening_brackets_stack[-1].char, next):
-                return output.position 
+                return output.position
+            else:
+                opening_brackets_stack.pop() 
             
             
     if opening_brackets_stack:
