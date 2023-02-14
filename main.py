@@ -30,12 +30,13 @@ def find_mismatch(text: str):
 
 def main():
     text = input()
+    text = input()
     mismatch = find_mismatch(text)
 
     if mismatch == 0:
         print("Success")
     else:
-        print(mismatch - 5)
+        print(mismatch)
 
 
 
