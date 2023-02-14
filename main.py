@@ -15,22 +15,23 @@ def find_mismatch(text: str):
     for i, next in enumerate(text):
 
         if next in "([{":
-            opening_brackets_stack.append(next)
+            opening_brackets_stack.append(Bracket(next, i+1))
 
         if next in ")]}":
-            rightB = Bracket(next, i+1)
+            output = Bracket(next, i+1)
 
-            if opening_brackets_stack == [] or not are_matching(opening_brackets_stack.pop(), next):
-                return rightB.position 
+            if opening_brackets_stack == [] or not are_matching(opening_brackets_stack[-1].char, next):
+                return output.position 
+            
             
     if opening_brackets_stack:
-        return rightB.position
+        return opening_brackets_stack[-1].position
     else:
         return 0
 
 def main():
     text = input()
-    if text == "I":
+    if "I" in text[:1]:
         text = input()
         mismatch = find_mismatch(text)
 
